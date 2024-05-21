@@ -24,7 +24,7 @@ public class WhatWeWillRepeatToday {
 //        classes.stream().forEach(e-> System.out.println(e.getName()) );
         Random rand = new Random();
         Class<?> randomClass = classes.get(rand.nextInt(classes.size()));
-        System.out.printf("Today we repeat problem - %s ", randomClass.getName().replace(LEET_CODE_PACKET + ".", ""));
+        System.out.printf("Today we are going repeat problem - %s ", randomClass.getName().replace(LEET_CODE_PACKET + ".", ""));
     }
 
     public static List<Class<?>> find(String scannedPackage) {
