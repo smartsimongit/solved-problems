@@ -32,3 +32,66 @@ public class Easy1114 {
         firstJobDone.release(); // Release the first job semaphore, allowing the cycle of jobs to be restarted (if necessary)
     }
 }
+
+//class Foo {
+//    private final CountDownLatch secondLatch;
+//    private final CountDownLatch thirdLatch;
+//
+//    public Foo() {
+//        secondLatch = new CountDownLatch(1);
+//        thirdLatch = new CountDownLatch(1);
+//    }
+//
+//    public void first(Runnable printFirst) throws InterruptedException {
+//        printFirst.run();
+//        secondLatch.countDown(); // 通知 second 已完成
+//    }
+//
+//    public void second(Runnable printSecond) throws InterruptedException {
+//        secondLatch.await(); // 等待 first 完成
+//        printSecond.run();
+//        thirdLatch.countDown(); // 通知 third 已完成
+//    }
+//
+//    public void third(Runnable printThird) throws InterruptedException {
+//        thirdLatch.await(); // 等待 second 完成
+//        printThird.run();
+//    }
+//}
+
+//class Foo {
+//
+//    private boolean firstFinished = false;
+//    private boolean secondFinished = false;
+//
+//    public Foo() {
+//    }
+//
+//    public void first(Runnable printFirst) throws InterruptedException {
+//
+//        // printFirst.run() outputs "first". Do not change or remove this line.
+//        printFirst.run();
+//        synchronized (this) {
+//            firstFinished = true;
+//            notifyAll();
+//        }
+//    }
+//
+//    public synchronized void second(Runnable printSecond) throws InterruptedException {
+//        while (!firstFinished) {
+//            wait();
+//        }
+//        // printSecond.run() outputs "second". Do not change or remove this line.
+//        printSecond.run();
+//        secondFinished = true;
+//        notifyAll();
+//    }
+//
+//    public synchronized void third(Runnable printThird) throws InterruptedException {
+//        while (!secondFinished) {
+//            wait();
+//        }
+//        // printThird.run() outputs "third". Do not change or remove this line.
+//        printThird.run();
+//    }
+//}
