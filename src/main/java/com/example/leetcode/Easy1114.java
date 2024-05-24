@@ -1,6 +1,9 @@
 package com.example.leetcode;
 
+import java.util.HashMap;
+import java.util.Objects;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Easy1114 {
     private Semaphore firstJobDone = new Semaphore(1); // Semaphore for first job, initially available
